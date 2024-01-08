@@ -28,8 +28,6 @@ public class ClientConfig {
 
 	@Bean
 	RestTemplateCustomizer hypermediaRestTemplateCustomizer(HypermediaRestTemplateConfigurer configurer) {
-		return restTemplate -> {
-			configurer.registerHypermediaTypes(restTemplate);
-		};
+		return configurer::registerHypermediaTypes;
 	}
 }
